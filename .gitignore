@@ -1,0 +1,28 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Ambiente e credenciais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Arquivos locais
+.vscode/
+.idea/
+.DS_Store
+
+# Dados locais
+data/raw/
+data/processed/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example

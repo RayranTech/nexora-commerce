@@ -1,0 +1,57 @@
+contract:
+  name: orders
+  version: "1.0.0"
+  owner: data-engineering
+  source: olist
+  entity: orders
+
+schema:
+  primary_key: order_id
+
+  fields:
+    order_id:
+      type: string
+      nullable: false
+
+    customer_id:
+      type: string
+      nullable: false
+
+    order_status:
+      type: string
+      nullable: false
+
+    order_purchase_timestamp:
+      type: timestamp
+      nullable: false
+
+    order_approved_at:
+      type: timestamp
+      nullable: true
+
+    order_delivered_carrier_date:
+      type: timestamp
+      nullable: true
+
+    order_delivered_customer_date:
+      type: timestamp
+      nullable: true
+
+    order_estimated_delivery_date:
+      type: timestamp
+      nullable: true
+
+quality:
+  unique:
+    - order_id
+
+  not_null:
+    - order_id
+    - customer_id
+    - order_status
+    - order_purchase_timestamp
+
+operations:
+  ingestion_mode: batch
+  expected_frequency: daily
+  on_schema_breaking_change: quarantine
